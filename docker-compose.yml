@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  wechat-bot:
+    build: .
+    container_name: wechat-bot
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+    command: npm start
+    restart: unless-stopped

@@ -1,18 +1,23 @@
+# Use an official Node.js runtime as a parent image
 FROM node:16
 
-# 创建应用目录
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-# 安装应用依赖
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-# 将应用源代码拷贝到容器中
+# Copy the rest of the application
 COPY . .
 
-# 暴露端口
+# Build the TypeScript code
+RUN npm run build
+
+# Expose the port the app runs on
 EXPOSE 3000
 
-# 运行应用
-CMD [ "node", "index.js" ]
+# Run the app
+CMD ["npm", "start"]

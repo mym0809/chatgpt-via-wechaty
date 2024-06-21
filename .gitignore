@@ -1,9 +1,5 @@
 node_modules/
-docker-compose.yml
-package-lock.json
-.DS_Store
+dist/
 .env
-logs
 *.log
-npm-debug.log*
-*.swp
+.DS_Store
