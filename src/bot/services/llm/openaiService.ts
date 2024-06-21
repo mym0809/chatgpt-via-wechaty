@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getConfig } from '../config.ts'
+import { getConfig } from '../../config'
 
 const config = getConfig()
 

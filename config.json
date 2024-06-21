@@ -8,18 +8,35 @@
     "systemPrompt": "You are a helpful assistant.",
     "temperature": 0.7,
     "maxTokens": 150,
-    "friendKeywords": ["王明明", "bot"],
-    "friendKeywordsRelation": "and",
+    "friendKeywords": ["keyword1", "keyword2", "keyword3"],
+    "friendKeywordsRelation": "or",
     "schedules": [
       {
         "time": "0 9 * * *",
         "task": "sendDailyMessage",
-        "contacts": ["王明明"],
-        "groups": ["chatbot"],
-        "message": "测试语句"
+        "contacts": ["ContactName1", "ContactName2"],
+        "groups": ["GroupName1", "GroupName2"],
+        "message": "Good morning! This is your daily message."
+      },
+      {
+        "time": "0 12 * * *",
+        "task": "sendNoonMessage",
+        "contacts": ["ContactName1"],
+        "groups": ["GroupName1"],
+        "message": "Good afternoon! This is your noon message."
       }
     ],
     "replyKeywords": [],
+    "customReplies": [
+      {
+        "trigger": "hello",
+        "response": "Hi there! How can I help you today?"
+      },
+      {
+        "trigger": "help",
+        "response": "Sure, I'm here to help. What do you need assistance with?"
+      }
+    ],
     "model": "gpt-4o",
     "logTimezone": "Asia/Shanghai"
   }

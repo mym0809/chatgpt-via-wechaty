@@ -66,13 +66,13 @@ export async function onMessage(message: Message) {
     const model = config.model;
 
     if (model.startsWith('gpt')) {
-      reply = await generateOpenAiText(userPrompt.join('\n'));
+      reply = await generateOpenAiText(userPrompt.join('\n'), model);
       logger.info(`Using model: ${model}`);
     } else if (model.startsWith('gemini')) {
-      reply = await generateGeminiText(userPrompt.join('\n'));
+      reply = await generateGeminiText(userPrompt.join('\n'), model);
       logger.info(`Using model: ${model}`);
     } else {
-      reply = await generateOpenAiText(userPrompt.join('\n')); // 默认使用gpt-4o
+      reply = await generateOpenAiText(userPrompt.join('\n'), 'gpt-4o'); // 默认使用gpt-4o
       logger.info('Using default model: gpt-4o');
     }
 

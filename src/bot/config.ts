@@ -1,5 +1,3 @@
-// src/bot/config.ts
-
 import fs from 'fs';
 import path from 'path';
 
@@ -23,6 +21,10 @@ export interface BotConfig {
     message: string;
   }>;
   replyKeywords: string[];
+  customReplies: Array<{
+    trigger: string;
+    response: string;
+  }>;
   model: string;
   logTimezone: string;
 }

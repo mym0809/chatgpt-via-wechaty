@@ -25,6 +25,8 @@ export async function onFriendship(friendship: Friendship) {
       } else {
         logger.info(`Received friend request from ${friendship.contact().name()} with message: ${hello}, but it does not meet the keyword criteria.`);
       }
+    } else if (friendship.type() === Friendship.Type.Confirm) {
+      logger.info(`Friendship confirmed with ${friendship.contact().name()}`);
     }
   } catch (error) {
     logger.error('Error handling friendship request:', error);
